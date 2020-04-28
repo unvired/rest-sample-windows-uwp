@@ -7,7 +7,7 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="a57ddf8c-2281-44b1-b1bd-f6340d17b53e"
+    Name="UnvireRestSample"
     Publisher="CN=navee"
     Version="1.0.0.0" />
 

@@ -52,8 +52,8 @@
         <Setter Property="FontFamily" Value="Segoe UI" />
         <Setter Property="TextWrapping" Value="Wrap" />
         <Setter Property="Width" Value="Auto" />
-        <Setter Property="VerticalAlignment" Value="Center"/>
-        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="Height" Value="Auto" />
     </Style>
     <!--#endregion-->
@@ -65,8 +65,8 @@
         <Setter Property="FontFamily" Value="Segoe UI" />
         <Setter Property="TextWrapping" Value="Wrap" />
         <Setter Property="Width" Value="Auto" />
-        <Setter Property="VerticalAlignment" Value="Center"/>
-        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="Height" Value="Auto" />
     </Style>
     <!--#endregion-->
@@ -288,7 +288,7 @@
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="CornerRadius" Value="2" />
-        
+
         <Setter Property="BorderThickness" Value="1" />
     </Style>
 
@@ -569,5 +569,11 @@
         <Setter Property="Foreground" Value="{StaticResource ForegroundColor}" />
     </Style>
 
-
+    <Style x:Key="LoginGridBackGround" TargetType="Grid">
+        <Setter Property="Background">
+            <Setter.Value>
+                <ImageBrush ImageSource="/Images/LoginPage.jpg" />
+            </Setter.Value>
+        </Setter>
+    </Style>
 </ResourceDictionary>

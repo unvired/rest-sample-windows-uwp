@@ -2,17 +2,24 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Xml;
+using System.Xml.Linq;
+using Unvired.Common.WinRT.Interface;
+using Unvired.Kernel.UWP.Login;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
 namespace UNVIRED_REST_SAMPLE
@@ -20,7 +27,7 @@ namespace UNVIRED_REST_SAMPLE
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.
     /// </summary>
-    sealed partial class App : Application
+    sealed partial class App : ILoginListener
     {
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
@@ -28,8 +35,13 @@ namespace UNVIRED_REST_SAMPLE
         /// </summary>
         public App()
         {
-            this.InitializeComponent();
-            this.Suspending += OnSuspending;
+            InitializeComponent();
+            Suspending += OnSuspending;
+            this.UnhandledException += App_UnhandledException;
+        }
+
+        private void App_UnhandledException(object sender, Windows.UI.Xaml.UnhandledExceptionEventArgs e)
+        {
         }
 
         /// <summary>
@@ -37,12 +49,10 @@ namespace UNVIRED_REST_SAMPLE
         /// will be used such as when the application is launched to open a specific file.
         /// </summary>
         /// <param name="e">Details about the launch request and process.</param>
-        protected override void OnLaunched(LaunchActivatedEventArgs e)
+        protected override async void OnLaunched(LaunchActivatedEventArgs e)
         {
             Frame rootFrame = Window.Current.Content as Frame;
 
-            // Do not repeat app initialization when the Window already has content,
-            // just ensure that the window is active
             if (rootFrame == null)
             {
                 // Create a Frame to act as the navigation context and navigate to the first page
@@ -59,26 +69,47 @@ namespace UNVIRED_REST_SAMPLE
                 Window.Current.Content = rootFrame;
             }
 
-            if (e.PrelaunchActivated == false)
+            Window.Current.Content = rootFrame;
+            Window.Current.Activate();
+
+            //AD Login Pass= kaneka / unvire login pass = Unvired123*
+
+            LoginParameters.AssemblyName = GetType().GetTypeInfo().Assembly.FullName;
+            LoginParameters.AppTitle = "Unvired REST Sample";
+            LoginParameters.AppName = "UNVIRED_REST_SAMPLE";
+            LoginParameters.Company = "unvired";
+            LoginParameters.ShowCompany = false;
+            LoginParameters.Protocol = LoginParameters.Protocols.https;
+            LoginParameters.Url = "sandbox.unvired.io/UMP?local";
+            // LoginParameters.Url = "pasmobdev.ktc.mfg:9090/UMP?local";
+            LoginParameters.LoginPageBrandingColor = Color.FromArgb(255, 0, 156, 222);
+            // LoginParameters.AdsDomain = "DC1KTC";
+            LoginParameters.AutoSyncTime = 1;
+            //LoginParameters.AdsUserId = Regex.Replace(WindowsIdentity.GetCurrent().Name, ".*\\\\(.*)", "$1", RegexOptions.None);
+            LoginParameters.AutoSendTime = 10;
+            // LoginParameters.SupportedLoginTypes = new LoginParameters.LoginTypes[] { LoginParameters.LoginTypes.UnviredId };
+            LoginParameters.AssemblyVersion = GetType().GetTypeInfo().Assembly.GetName().Version.ToString(4);
+            LoginParameters.HttpConnectionTimeOut = 2;
+
+
+            using (var xr = XmlReader.Create(@"metadata.xml"))
             {
-                if (rootFrame.Content == null)
-                {
-                    // When the navigation stack isn't restored navigate to the first page,
-                    // configuring the new page by passing required information as a navigation
-                    // parameter
-                    rootFrame.Navigate(typeof(Weather), e.Arguments);
-                }
-                // Ensure the current window is active
-                Window.Current.Activate();
+                var xDocument = XDocument.Load(xr);
+                LoginParameters.MetaDataXml = xDocument;
             }
+            LoginParameters.LoginListener = this;
+
+            await AuthenticationService.Login();
         }
+
+
 
         /// <summary>
         /// Invoked when Navigation to a certain page fails
         /// </summary>
         /// <param name="sender">The Frame which failed navigation</param>
         /// <param name="e">Details about the navigation failure</param>
-        void OnNavigationFailed(object sender, NavigationFailedEventArgs e)
+        private void OnNavigationFailed(object sender, NavigationFailedEventArgs e)
         {
             throw new Exception("Failed to load Page " + e.SourcePageType.FullName);
         }
@@ -95,6 +126,50 @@ namespace UNVIRED_REST_SAMPLE
             var deferral = e.SuspendingOperation.GetDeferral();
             //TODO: Save application state and stop any background activity
             deferral.Complete();
+        }
+
+        public void LoginSuccessful()
+        {
+            //Check for Mobile User in local db, if does not exist the navigate to SAPLoginPage so that user can authenticate with SAP and
+            // download Mobile User along with other customization data.
+            // Mobile User has SAP username which is required to fetch data from SAP for that user
+
+            if (Window.Current.Content is Frame frame && !frame.Navigate(typeof(Weather), null, new SlideNavigationTransitionInfo { Effect = SlideNavigationTransitionEffect.FromRight }))
+            {
+                throw new Exception("Failed to create initial page");
+            }
+        }
+
+        public void LoginCancelled()
+        {
+        }
+
+        public void LoginFailure(string errorMessage)
+        {
+        }
+
+        public void AuthenticateAndActivationSuccessful()
+        {
+            if (Window.Current.Content is Frame frame && !frame.Navigate(typeof(Weather), null, new SlideNavigationTransitionInfo { Effect = SlideNavigationTransitionEffect.FromRight }))
+            {
+                throw new Exception("Failed to create initial page");
+            }
+        }
+
+        public void AuthenticateAndActivationFailure(string errorMessage)
+        {
+        }
+
+        public void DemoLoginSuccessful()
+        {
+        }
+
+        public void ActivationRequired()
+        {
+        }
+
+        public void LocalAuthenticationRequired(string userName)
+        {
         }
     }
 }
