@@ -72,22 +72,19 @@ namespace UNVIRED_REST_SAMPLE
             Window.Current.Content = rootFrame;
             Window.Current.Activate();
 
-            //AD Login Pass= kaneka / unvire login pass = Unvired123*
+
 
             LoginParameters.AssemblyName = GetType().GetTypeInfo().Assembly.FullName;
             LoginParameters.AppTitle = "Unvired REST Sample";
             LoginParameters.AppName = "UNVIRED_REST_SAMPLE";
             LoginParameters.Company = "unvired";
-            LoginParameters.ShowCompany = false;
+            LoginParameters.ShowCompany = true;
             LoginParameters.Protocol = LoginParameters.Protocols.https;
             LoginParameters.Url = "sandbox.unvired.io/UMP?local";
-            // LoginParameters.Url = "pasmobdev.ktc.mfg:9090/UMP?local";
             LoginParameters.LoginPageBrandingColor = Color.FromArgb(255, 0, 156, 222);
-            // LoginParameters.AdsDomain = "DC1KTC";
+
             LoginParameters.AutoSyncTime = 1;
-            //LoginParameters.AdsUserId = Regex.Replace(WindowsIdentity.GetCurrent().Name, ".*\\\\(.*)", "$1", RegexOptions.None);
             LoginParameters.AutoSendTime = 10;
-            // LoginParameters.SupportedLoginTypes = new LoginParameters.LoginTypes[] { LoginParameters.LoginTypes.UnviredId };
             LoginParameters.AssemblyVersion = GetType().GetTypeInfo().Assembly.GetName().Version.ToString(4);
             LoginParameters.HttpConnectionTimeOut = 2;
 
