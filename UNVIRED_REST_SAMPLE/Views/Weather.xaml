@@ -138,15 +138,33 @@
             </TextBlock>
 
         </Grid>
-        <Button
-            x:Name="SettingButton"
-            Grid.Row="6"
-            Margin="5,0,0,0"
-            Click="SettingButton_Click"
-            Content="&#xE713;"
-            Style="{StaticResource SettingButtonStyle}"
-            ToolTipService.ToolTip="Settings" />
-
+        <Grid Grid.Row="6">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40">
+                </ColumnDefinition>
+                <ColumnDefinition>
+                </ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button
+                x:Name="SettingButton"
+                Margin="5,0,0,0"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Click="SettingButton_Click"
+                Content="&#xE713;"
+                Style="{StaticResource SettingButtonStyle}"
+                ToolTipService.ToolTip="Settings" />
+            <TextBlock
+                Grid.Column="1"
+                VerticalAlignment="Center"
+                FontSize="18"
+                FontWeight="SemiBold"
+                Foreground="{StaticResource ForegroundColor}">
+                <Run Text="Version " />
+                <Run x:Name="ApplicationVersion">
+                </Run>
+            </TextBlock>
+        </Grid>
         <!--#region Setting SplitView-->
 
         <SplitView

@@ -8,6 +8,7 @@ using Unvired.Kernel.Sync;
 using Unvired.Kernel.Utils;
 using Unvired.Kernel.UWP.Constants;
 using Unvired.Kernel.UWP.Log;
+using Unvired.Kernel.UWP.Login;
 using Unvired.Kernel.UWP.Model;
 using Unvired.Kernel.UWP.Sync;
 using UNVIRED_REST_SAMPLE.Utility;
@@ -56,6 +57,7 @@ namespace UNVIRED_REST_SAMPLE
             WeatherHeaderResponse = new WEATHER_HEADER();
             ValidationTextBlock.Visibility = Visibility.Collapsed;
             displayGrid.Visibility = Visibility.Collapsed;
+            ApplicationVersion.Text = LoginParameters.AssemblyVersion;
         }
 
         private async void GetWeatherClick(object sender, RoutedEventArgs e)
