@@ -67,16 +67,11 @@ namespace UNVIRED_REST_SAMPLE
             LoginParameters.AppName = "UNVIRED_REST_SAMPLE";
             LoginParameters.Company = "unvired";
             LoginParameters.ShowCompany = true;
-
             LoginParameters.Protocol = LoginParameters.Protocols.https;
             LoginParameters.Url = "sandbox.unvired.io/UMP?local";
-            LoginParameters.LoginPageBrandingColor = Color.FromArgb(255, 0, 156, 222);
-
-            LoginParameters.AutoSyncTime = 1;
-            LoginParameters.AutoSendTime = 10;
             LoginParameters.AssemblyVersion = GetType().GetTypeInfo().Assembly.GetName().Version.ToString(4);
-            LoginParameters.HttpConnectionTimeOut = 2;
             LoginParameters.ShowBrandLogo = true;
+
 
 
             using (var xr = XmlReader.Create(@"metadata.xml"))

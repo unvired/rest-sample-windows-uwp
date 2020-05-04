@@ -12,12 +12,7 @@
     <SolidColorBrush x:Key="SubHeadingForgroundColor" Color="#427CAC" />
 
 
-    <SolidColorBrush x:Key="ToggleSwitchFillOn" Color="#395875" />
-    <SolidColorBrush x:Key="ToggleSwitchFillOnPointerOver" Color="#395875" />
-    <SolidColorBrush x:Key="DatePickerButtonBorderBrush" Color="Transparent" />
-    <SolidColorBrush x:Key="DatePickerButtonBackgroundPointerOver" Color="Transparent" />
-    <SolidColorBrush x:Key="DatePickerButtonBorderBrushPointerOver" Color="Transparent" />
-    <SolidColorBrush x:Key="DatePickerButtonBorderBrushPressed" Color="Transparent" />
+
 
 
 
@@ -57,6 +52,7 @@
         <Setter Property="Height" Value="Auto" />
     </Style>
     <!--#endregion-->
+
     <!--#region  HeaderTextBlock Style-->
     <Style x:Key="SubHeaderTextStyle" TargetType="TextBlock">
         <Setter Property="FontSize" Value="34" />
@@ -125,59 +121,7 @@
         </Setter>
     </Style>
     <!--#endregion-->
-    <!--#region Sort Square button Style-->
-    <Style x:Key="SortButton" TargetType="Button">
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="Button">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                        </Grid.RowDefinitions>
-                        <Rectangle
-                            Name="Rectangle"
-                            Grid.Row="0"
-                            HorizontalAlignment="Stretch"
-                            VerticalAlignment="Stretch"
-                            Stroke="Transparent"
-                            StrokeThickness="2" />
-                        <ContentPresenter
-                            Name="Content"
-                            Grid.Row="0"
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            Content="{TemplateBinding Content}"
-                            FontFamily="Segoe MDL2 Assets"
-                            FontSize="18"
-                            Foreground="{TemplateBinding Foreground}" />
-                        <VisualStateManager.VisualStateGroups>
-                            <VisualStateGroup x:Name="CommonStates">
-                                <VisualState x:Name="Normal" />
-                                <VisualState x:Name="PointerOver">
-                                    <Storyboard>
-                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Rectangle" Storyboard.TargetProperty="Opacity">
-                                            <DiscreteObjectKeyFrame KeyTime="0" Value="0.7" />
-                                        </ObjectAnimationUsingKeyFrames>
-                                    </Storyboard>
-                                </VisualState>
-                                <VisualState x:Name="Pressed">
-                                    <Storyboard>
-                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Rectangle" Storyboard.TargetProperty="Fill">
-                                            <DiscreteObjectKeyFrame KeyTime="0" Value="Transparent" />
-                                        </ObjectAnimationUsingKeyFrames>
-                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Content" Storyboard.TargetProperty="Foreground">
-                                            <DiscreteObjectKeyFrame KeyTime="0" Value="White" />
-                                        </ObjectAnimationUsingKeyFrames>
-                                    </Storyboard>
-                                </VisualState>
-                            </VisualStateGroup>
-                        </VisualStateManager.VisualStateGroups>
-                    </Grid>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-    <!--#endregion-->
+
 
     <Style x:Key="HomePageTileButtonStyle" TargetType="Button">
         <Setter Property="Background" Value="Transparent" />
@@ -186,22 +130,6 @@
         <Setter Property="Padding" Value="0" />
 
     </Style>
-
-    <Style x:Key="BorderBlueStyle" TargetType="Border">
-        <Setter Property="BorderBrush" Value="{StaticResource CommonBackground}" />
-        <Setter Property="BorderThickness" Value="0" />
-
-    </Style>
-
-    <Style x:Key="GridViewTitleTextBlock" TargetType="TextBlock">
-        <Setter Property="HorizontalAlignment" Value="Stretch" />
-        <Setter Property="TextAlignment" Value="Center" />
-        <Setter Property="Foreground" Value="Black" />
-        <Setter Property="FontSize" Value="20" />
-        <Setter Property="FontWeight" Value="Normal" />
-        <Setter Property="FontFamily" Value="Segoe UI" />
-    </Style>
-
 
     <!--#region Field and Value  text style-->
 
@@ -245,43 +173,9 @@
         <Setter Property="Background" Value="White" />
         <Setter Property="CornerRadius" Value="2" />
     </Style>
-    <Style x:Key="SearchBoxStyle" TargetType="SearchBox">
-        <Setter Property="FontSize" Value="18" />
-        <Setter Property="FontWeight" Value="Normal" />
-        <Setter Property="Foreground" Value="Black" />
-        <Setter Property="Width" Value="400" />
-        <Setter Property="VerticalAlignment" Value="Center" />
-        <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="Background" Value="White" />
-        <Setter Property="CornerRadius" Value="2" />
-    </Style>
 
-    <Style x:Key="TableHeadingText" TargetType="TextBlock">
-        <Setter Property="FontSize" Value="18" />
-        <Setter Property="FontWeight" Value="SemiBold" />
-        <Setter Property="Foreground" Value="White" />
-        <Setter Property="TextWrapping" Value="Wrap" />
-        <Setter Property="VerticalAlignment" Value="Center" />
-        <Setter Property="HorizontalAlignment" Value="Center" />
 
-    </Style>
-    <Style x:Key="TableContentText" TargetType="TextBlock">
-        <Setter Property="FontSize" Value="18" />
-        <Setter Property="FontWeight" Value="SemiBold" />
-        <Setter Property="Foreground" Value="{StaticResource ForegroundColor}" />
-        <Setter Property="TextWrapping" Value="Wrap" />
-        <Setter Property="VerticalAlignment" Value="Center" />
-        <Setter Property="HorizontalAlignment" Value="Center" />
 
-    </Style>
-    <Style x:Key="TableContentNormalTextStyle" TargetType="TextBlock">
-        <Setter Property="FontSize" Value="18" />
-        <Setter Property="FontWeight" Value="Normal" />
-        <Setter Property="Foreground" Value="{StaticResource ForegroundColor}" />
-        <Setter Property="TextWrapping" Value="Wrap" />
-        <Setter Property="VerticalAlignment" Value="Center" />
-        <Setter Property="HorizontalAlignment" Value="Center" />
-    </Style>
     <Style x:Key="ActionButtonStyle" TargetType="Button">
         <Setter Property="FontSize" Value="20" />
         <Setter Property="Foreground" Value="White" />
@@ -296,20 +190,7 @@
 
     <!--#endregion-->
 
-    <!--#region ComboBox Style-->
 
-    <Style x:Key="ComboBoxStyle" TargetType="ComboBox">
-        <Setter Property="FontSize" Value="18" />
-        <Setter Property="Foreground" Value="{StaticResource TextForegroundColor}" />
-        <Setter Property="VerticalAlignment" Value="Center" />
-
-        <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="CornerRadius" Value="2" />
-        <Setter Property="Background" Value="White" />
-
-    </Style>
-
-    <!--#endregion-->
 
     <!--#region SplitView Style Section-->
 
@@ -433,83 +314,6 @@
 
     <!--#endregion-->
 
-    <Style x:Key="CalendarDatePickerStyle" TargetType="CalendarDatePicker">
-        <Setter Property="FontSize" Value="18" />
-        <Setter Property="Foreground" Value="{StaticResource TextForegroundColor}" />
-
-        <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="VerticalAlignment" Value="Center" />
-
-        <Setter Property="CornerRadius" Value="2" />
-        <Setter Property="Background" Value="White" />
-    </Style>
-    <Style x:Key="DatePickerStyle" TargetType="DatePicker">
-        <Setter Property="FontSize" Value="18" />
-        <Setter Property="Foreground" Value="{StaticResource ForegroundColor}" />
-        <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="VerticalAlignment" Value="Center" />
-        <Setter Property="CornerRadius" Value="2" />
-        <Setter Property="Background" Value="White" />
-
-    </Style>
-
-    <!--#region Common Square button Style-->
-    <Style x:Key="DiviceSquaredButton" TargetType="Button">
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="Button">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                        </Grid.RowDefinitions>
-                        <Ellipse
-                            Name="Rectangle"
-                            Grid.Row="0"
-                            Width="50"
-                            Height="50"
-                            HorizontalAlignment="Stretch"
-                            VerticalAlignment="Stretch"
-                            Fill="{TemplateBinding Background}"
-                            Stroke="Transparent"
-                            StrokeThickness="2" />
-                        <ContentPresenter
-                            Name="Content"
-                            Grid.Row="0"
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            Content="{TemplateBinding Content}"
-                            CornerRadius="5"
-                            FontFamily="Segoe MDL2 Assets"
-                            FontSize="25"
-                            Foreground="{TemplateBinding Foreground}" />
-                        <VisualStateManager.VisualStateGroups>
-                            <VisualStateGroup x:Name="CommonStates">
-                                <VisualState x:Name="Normal" />
-                                <VisualState x:Name="PointerOver">
-                                    <Storyboard>
-                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Rectangle" Storyboard.TargetProperty="Opacity">
-                                            <DiscreteObjectKeyFrame KeyTime="0" Value="0.7" />
-                                        </ObjectAnimationUsingKeyFrames>
-                                    </Storyboard>
-                                </VisualState>
-                                <VisualState x:Name="Pressed">
-                                    <Storyboard>
-                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Rectangle" Storyboard.TargetProperty="Fill">
-                                            <DiscreteObjectKeyFrame KeyTime="0" Value="Transparent" />
-                                        </ObjectAnimationUsingKeyFrames>
-                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Content" Storyboard.TargetProperty="Foreground">
-                                            <DiscreteObjectKeyFrame KeyTime="0" Value="#696969" />
-                                        </ObjectAnimationUsingKeyFrames>
-                                    </Storyboard>
-                                </VisualState>
-                            </VisualStateGroup>
-                        </VisualStateManager.VisualStateGroups>
-                    </Grid>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-    <!--#endregion-->
 
     <Style x:Key="SettingButtonStyle" TargetType="Button">
         <Setter Property="Template">
@@ -561,12 +365,6 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-    </Style>
-
-    <Style x:Key="HubSectionHeaderStyle" TargetType="TextBlock">
-        <Setter Property="FontSize" Value="30" />
-        <Setter Property="FontWeight" Value="Normal" />
-        <Setter Property="Foreground" Value="{StaticResource ForegroundColor}" />
     </Style>
 
     <Style x:Key="LoginGridBackGround" TargetType="Grid">
