@@ -1,24 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Reflection;
-using System.Runtime.InteropServices.WindowsRuntime;
 using System.Xml;
 using System.Xml.Linq;
 using Unvired.Common.WinRT.Interface;
 using Unvired.Kernel.UWP.Login;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
@@ -72,13 +62,12 @@ namespace UNVIRED_REST_SAMPLE
             Window.Current.Content = rootFrame;
             Window.Current.Activate();
 
-
-
             LoginParameters.AssemblyName = GetType().GetTypeInfo().Assembly.FullName;
             LoginParameters.AppTitle = "Unvired REST Sample";
             LoginParameters.AppName = "UNVIRED_REST_SAMPLE";
             LoginParameters.Company = "unvired";
             LoginParameters.ShowCompany = true;
+
             LoginParameters.Protocol = LoginParameters.Protocols.https;
             LoginParameters.Url = "sandbox.unvired.io/UMP?local";
             LoginParameters.LoginPageBrandingColor = Color.FromArgb(255, 0, 156, 222);
@@ -87,6 +76,7 @@ namespace UNVIRED_REST_SAMPLE
             LoginParameters.AutoSendTime = 10;
             LoginParameters.AssemblyVersion = GetType().GetTypeInfo().Assembly.GetName().Version.ToString(4);
             LoginParameters.HttpConnectionTimeOut = 2;
+            LoginParameters.ShowBrandLogo = true;
 
 
             using (var xr = XmlReader.Create(@"metadata.xml"))

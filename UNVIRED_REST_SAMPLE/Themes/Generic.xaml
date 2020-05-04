@@ -1938,7 +1938,7 @@
                                 Width="Auto"
                                 Height="Auto">
                                 <Grid.Background>
-                                    <ImageBrush ImageSource="/Images/LoginBackGroundImage.jpg" Stretch="UniformToFill" />
+                                    <ImageBrush ImageSource="/Image/LoginBackGroundImage.jpg" Stretch="UniformToFill" />
                                 </Grid.Background>
 
                                 <Grid.ColumnDefinitions>
@@ -2053,8 +2053,8 @@
                                     VerticalAlignment="Center"
                                     Background="White"
                                     BorderBrush="#263238"
-                                    BorderThickness="2"
-                                    CornerRadius="5">
+                                    BorderThickness="1"
+                                    CornerRadius="2">
                                     <Grid
                                         Margin="2"
                                         HorizontalAlignment="Center"
@@ -2069,9 +2069,9 @@
                                             <RowDefinition Height="Auto" />
                                             <RowDefinition Height="20" />
                                             <RowDefinition Height="Auto" />
-                                            <RowDefinition Height="20" />
-                                            <RowDefinition Height="Auto" />
-                                            <RowDefinition Height="30" />
+                                            <RowDefinition Height="10" />
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="10" />
                                             <RowDefinition Height="Auto" />
                                         </Grid.RowDefinitions>
 
@@ -2080,12 +2080,16 @@
                                             Margin="20"
                                             HorizontalAlignment="Center"
                                             VerticalAlignment="Center"
-                                            Orientation="Horizontal">
-                                            <Image x:Name="LoginTypeImage" VerticalAlignment="Top" />
+                                            Orientation="Vertical">
+                                            <Image
+                                                x:Name="LoginTypeImage"
+                                                Width="100px"
+                                                Height="100px"
+                                                VerticalAlignment="Top" />
                                             <TextBlock
                                                 x:Name="LoginHeaderType"
                                                 x:Uid="LoginHeaderType"
-                                                Margin="10,0,0,50"
+                                                Margin="10,0,0,20"
                                                 Style="{StaticResource LoginHeaderTextStyle}"
                                                 Text="" />
                                         </StackPanel>
@@ -2143,7 +2147,8 @@
                                             x:Name="LoginProgressRing"
                                             Grid.Row="7"
                                             Width="30"
-                                            Height="30"
+                                            Height="Auto"
+                                            MaxHeight="30"
                                             Margin="140,0,0,0"
                                             HorizontalAlignment="Left"
                                             Background="Transparent"
@@ -2153,8 +2158,7 @@
                                             Name="LoginMessageTextArea"
                                             Grid.Row="9"
                                             Width="290"
-                                            Height="Auto"
-                                            Margin="15"
+                                            Margin="15,0,15,15"
                                             HorizontalAlignment="Left"
                                             FontSize="14"
                                             Foreground="Red"

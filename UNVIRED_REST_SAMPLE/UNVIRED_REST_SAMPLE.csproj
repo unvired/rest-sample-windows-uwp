@@ -137,7 +137,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\Error_Message.png" />
-    <Content Include="Images\LoginPageBacground.jpg" />
+    <Content Include="Images\LoginPageBackground.jpg" />
     <Content Include="Images\Info_Message.png" />
     <Content Include="Images\PageBachground.jpg" />
     <Content Include="Images\Success_Message.png" />
@@ -175,6 +175,7 @@
     <Content Include="Themes\Image\sys_credentials_active_user_48.png" />
     <Content Include="Themes\Image\sys_credentials_inactive_user_48.png" />
     <Content Include="Themes\Image\uniLogo.png" />
+    <Content Include="Themes\Image\UnviredLogo.gif" />
     <Content Include="Themes\Image\unvired_logo.png" />
     <Content Include="Themes\Image\win32.gif" />
   </ItemGroup>
