@@ -1587,7 +1587,8 @@
                                     </SettingsFlyout>
                                 </Popup>
 
-                                <!--  System Credential Popup  -->
+                                <!--#region System Credential Popup-->
+
                                 <Popup
                                     x:Name="SysCredentialSubPopup"
                                     FlowDirection="RightToLeft"
@@ -1711,8 +1712,10 @@
                                         </Grid>
                                     </SettingsFlyout>
                                 </Popup>
+                                <!--#endregion-->
 
-                                <!--  Attachments Inbox Flyout  -->
+
+                                <!--#region  Attachments Inbox Flyout-->
                                 <Popup
                                     x:Name="AttachmentsInboxPopup"
                                     FlowDirection="RightToLeft"
@@ -1782,8 +1785,9 @@
                                         </Grid>
                                     </SettingsFlyout>
                                 </Popup>
+                                <!--#endregion-->
 
-                                <!--  Attachments Outbox Flyout  -->
+                                <!--#region  Attachments Outbox Flyout-->
                                 <Popup
                                     x:Name="AttachmentsOutboxPopup"
                                     FlowDirection="RightToLeft"
@@ -1843,8 +1847,9 @@
                                         </Grid>
                                     </SettingsFlyout>
                                 </Popup>
+                                <!--#endregion-->
 
-                                <!--  Location Tracking Flyout  -->
+                                <!--#region  Location Tracking Flyout-->
                                 <Popup
                                     x:Name="LocationPopup"
                                     FlowDirection="RightToLeft"
@@ -1921,6 +1926,8 @@
                                         </Grid>
                                     </SettingsFlyout>
                                 </Popup>
+                                <!--#endregion-->
+
                             </Grid>
                         </ControlTemplate>
                     </Setter.Value>
@@ -1938,7 +1945,7 @@
                                 Width="Auto"
                                 Height="Auto">
                                 <Grid.Background>
-                                    <ImageBrush ImageSource="/Image/LoginBackGroundImage.jpg" Stretch="UniformToFill" />
+                                    <ImageBrush ImageSource="/Images/LoginBackGroundImage.jpg" Stretch="UniformToFill" />
                                 </Grid.Background>
 
                                 <Grid.ColumnDefinitions>
@@ -2052,9 +2059,9 @@
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Center"
                                     Background="White"
-                                    BorderBrush="#263238"
+                                    BorderBrush="#395875"
                                     BorderThickness="1"
-                                    CornerRadius="2">
+                                    CornerRadius="3">
                                     <Grid
                                         Margin="2"
                                         HorizontalAlignment="Center"
@@ -2132,6 +2139,8 @@
                                             Margin="10"
                                             HorizontalAlignment="Left"
                                             BorderBrush="LightBlue"
+                                            BorderThickness="1"
+                                            CornerRadius="3"
                                             IsPasswordRevealButtonEnabled="True"
                                             PlaceholderText="" />
 
@@ -2147,8 +2156,7 @@
                                             x:Name="LoginProgressRing"
                                             Grid.Row="7"
                                             Width="30"
-                                            Height="Auto"
-                                            MaxHeight="30"
+                                            Height="30"
                                             Margin="140,0,0,0"
                                             HorizontalAlignment="Left"
                                             Background="Transparent"
@@ -2158,7 +2166,8 @@
                                             Name="LoginMessageTextArea"
                                             Grid.Row="9"
                                             Width="290"
-                                            Margin="15,0,15,15"
+                                            Height="Auto"
+                                            Margin="15"
                                             HorizontalAlignment="Left"
                                             FontSize="14"
                                             Foreground="Red"
@@ -3101,7 +3110,7 @@
 
             <!--  Login Text Style  -->
             <Style x:Key="LoginTextStyle" TargetType="TextBlock">
-                <Setter Property="Foreground" Value="#14345F" />
+                <Setter Property="Foreground" Value="#395875" />
                 <Setter Property="FontSize" Value="{StaticResource ControlContentThemeFontSize}" />
                 <Setter Property="FontFamily" Value="{StaticResource ContentControlThemeFontFamily}" />
             </Style>
@@ -3110,7 +3119,8 @@
             <Style x:Key="LoginButtonStyle" TargetType="Button">
                 <Setter Property="Height" Value="40" />
                 <Setter Property="Width" Value="280" />
-                <Setter Property="Background" Value="#14345F" />
+
+                <Setter Property="Background" Value="#395875" />
                 <Setter Property="Foreground" Value="White" />
                 <Setter Property="BorderThickness" Value="{StaticResource ButtonBorderThemeThickness}" />
                 <Setter Property="Padding" Value="12,4,12,4" />
@@ -3128,7 +3138,8 @@
                                     Margin="3"
                                     Background="{TemplateBinding Background}"
                                     BorderBrush="{TemplateBinding BorderBrush}"
-                                    BorderThickness="{TemplateBinding BorderThickness}">
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    CornerRadius="3">
                                     <ContentPresenter
                                         x:Name="ContentPresenter"
                                         Margin="{TemplateBinding Padding}"
@@ -3191,7 +3202,8 @@
                                     Margin="3"
                                     Background="{TemplateBinding Background}"
                                     BorderBrush="{TemplateBinding BorderBrush}"
-                                    BorderThickness="{TemplateBinding BorderThickness}">
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    CornerRadius="3">
                                     <ContentPresenter
                                         x:Name="ContentPresenter"
                                         Margin="{TemplateBinding Padding}"
@@ -3476,7 +3488,8 @@
             <!--  login textbox style  -->
             <Style x:Key="LoginTextboxStyle" TargetType="TextBox">
                 <Setter Property="Width" Value="290" />
-                <Setter Property="BorderBrush" Value="LightBlue" />
+                <Setter Property="BorderThickness" Value="1" />
+                <Setter Property="CornerRadius" Value="2" />
                 <Setter Property="FontSize" Value="{StaticResource ControlContentThemeFontSize}" />
                 <Setter Property="FontFamily" Value="{StaticResource ContentControlThemeFontFamily}" />
                 <Setter Property="Margin" Value="10" />
