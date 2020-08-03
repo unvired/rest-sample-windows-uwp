@@ -20,13 +20,7 @@
     <SolidColorBrush x:Key="TextControlForegroundDisabled" Color="Black" />
     <!--<SolidColorBrush x:Key="TextControlBackgroundDisabled" Color="#ECEFF1" />-->
     <SolidColorBrush x:Key="TextControlBackgroundDisabled" Color="#cadbeb" />
-    <!--<SolidColorBrush x:Key="ListViewItemBackground" Color="#cbe2f2" />-->
-    <SolidColorBrush x:Key="CheckBoxBorderBrushCheckedDisabled" Color="#263238" />
-    <SolidColorBrush x:Key="CheckBoxCheckBackgroundFillChecked" Color="#263238" />
-    <SolidColorBrush x:Key="CheckBoxCheckBackgroundStrokeCheckedPointerOver" Color="#263238" />
-    <SolidColorBrush x:Key="CheckBoxCheckBackgroundStrokeCheckedPressed" Color="#263238" />
-    <SolidColorBrush x:Key="CheckBoxCheckBackgroundStrokeUncheckedPointerOver" Color="#263238" />
-    <SolidColorBrush x:Key="CheckBoxCheckBackgroundFillCheckedPointerOver" Color="#263238" />
+
 
     <Style x:Key="GridBackGroundStyle" TargetType="Grid">
         <!--<Setter Property="Background" Value="#EDF0F2" />-->
